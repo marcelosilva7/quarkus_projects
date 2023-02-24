@@ -29,7 +29,14 @@ public class Controller {
     	return Response.status(200).entity(json).build();	
     }
 	
-	
+	@GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("{modelo}")
+    public Response carro3(@PathParam String modelo) {	
+		List<Carro> carrosEncontrados = model.buscarModelo(modelo);	
+		String json = new Gson().toJson(carrosEncontrados);
+    	return Response.status(200).entity(json).build();	
+    }
 	
 	
 	
